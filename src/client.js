@@ -1,6 +1,7 @@
 /* global requestAnimationFrame */
 
 const PIXI = require('pixi.js')
+const TweenMax = require('gsap')
 // You can use either `new PIXI.WebGLRenderer`, `new PIXI.CanvasRenderer`, or `PIXI.autoDetectRenderer`
 // which will try to choose the best renderer for the environment you are in.
 var renderer = new PIXI.WebGLRenderer(800, 600)
@@ -48,3 +49,4 @@ function animate () {
   renderer.render(stage)
 }
 animate()
+TweenMax.from(bunny.position, 1, { x: 0 })
