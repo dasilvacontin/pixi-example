@@ -1,3 +1,5 @@
+/* global requestAnimationFrame */
+
 const PIXI = require('pixi.js')
 // You can use either `new PIXI.WebGLRenderer`, `new PIXI.CanvasRenderer`, or `PIXI.autoDetectRenderer`
 // which will try to choose the best renderer for the environment you are in.
@@ -31,9 +33,11 @@ bunny.addChild(hat)
 hat.interactive = true
 hat.on('mouseover', (e) => {
   console.log('hat is bae', e.target, e.target === hat, e.target.position)
+  hat.tint = 0x00FF00
 })
+hat.on('mouseout', () => { hat.tint = 0xFFFFFF })
 
-function animate() {
+function animate () {
   // start the timer for the next animation loop
   requestAnimationFrame(animate)
 
